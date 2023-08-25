@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="UTF-8">
+	<title> {% block title %} {% endblock %} - Template App</title>
+	<style>
+		.center {
+            display: flex;
+			flex-direction: column;
+            justify-content: space-between;
+			align-items: center;
+			height: 50px;
+			flex-width: 75%;
+        }
+		ul.flashes {
+			list-style-type: none;
+		}
+		#hidden {
+			-moz-animation: cssAnimation 5s forwards;	//firefox support
+			-webkit-animation: cssAnimation 5s forwards;	//safari and chrome support
+			-o-animation: cssAnimation 5s forwards;		//opera support
+			animation: cssAnimation 5s forwards;
+		}
+		@keyframes cssAnimation {
+			0%	 {opacity: 1;}
+			90%	 {opacity: 1;}
+			100% {opacity: 0;}
+		}
+		@-webkit-keyframes cssAnimation {
+			0%	 {opacity: 1;}
+			90%	 {opacity: 1;}
+			100% {opacity: 0;}
+		}
+	</style>
+</head>
+<body>
+	<div class="center">
+		{% block content %} {% endblock %}
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<ul class="flashes" id="hidden">
+				{% for message in messages %}
+					<li>{{ message }}</li>
+				{% endfor %}
+				</ul>
+			{% endif %}
+		{% endwith %}
+	</div>
+</body>
+</head>

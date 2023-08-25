@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h2>{% block title %} Account Registration {% endblock %}</h2>
+	<form action="{{ url_for('registration') }}" method=POST>
+		<label for="fname">First Name:</label><br>
+		<input type="text" id="fname" name="fname" required><br><br>
+		<label for="lname">Last Name:</label><br>
+		<input type="text" id="lname" name="lname" required><br><br>
+		<label for="username">Username:</label><br>
+		<input type="text" id="username" name="username" required><br><br>
+		<label for="email">Email:</label><br>
+		<input type="email" id="email" name="email" required><br><br>
+		<label for="password">Password:</label><br>
+		<input type="password" id="password" name="password" required><br><br>
+		<hr>
+		<input type="submit" value="Register">
+	</form>
+	<!--
+	{% if saveState == 1 %}
+		{% set saveText = 'Info saved!' %}
+	{% elif saveState == 2 %}
+		{% set saveText = 'Username already exists' %}
+	{% else %}
+		{% set saveText = '' %}
+	{% endif %}
+	<p>{{saveText}}</p>
+	-->
+	
+{% endblock %}

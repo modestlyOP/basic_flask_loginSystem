@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>{% block title %} Index {% endblock %}</h1>
+	<p>Welcome to the Index!</p>
+	<a href="{{ url_for('signin') }}"><button>Sign In</button></a>
+	<a href="{{ url_for('registration') }}"><button>Register Account</button></a>
+{% endblock %}
